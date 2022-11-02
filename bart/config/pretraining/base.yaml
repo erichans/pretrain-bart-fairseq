@@ -1,0 +1,85 @@
+# @package _group_
+common:
+  fp16: true
+  log_format: json
+  log_interval: 1000
+  #fp16_init_scale: 128
+  #min_loss_scale: 0.0001
+
+checkpoint:
+  no_epoch_checkpoints: true #original true
+  save_interval: 1
+  save_interval_updates: 3000 #original 5000
+  keep_interval_updates: 5
+
+distributed_training:
+  fp16: true
+  distributed_world_size: 2 # original 256
+  distributed_port: 54187
+
+bpe: 
+  _name: gpt2
+  gpt2_encoder_json: /home/TCU/erichm/projetos/pretrain-bart-fairseq/bart/gpt2_bpe/encoder.json
+  gpt2_vocab_bpe: /home/TCU/erichm/projetos/pretrain-bart-fairseq/bart/gpt2_bpe/vocab.bpe
+
+task:
+  _name: denoising
+  data: ???
+  seed: 42 #original 4
+  sample_break_mode: eos
+  tokens_per_sample: 512
+  shorten_method: truncate
+  mask: 0.3
+  mask_random: 0.1
+  insert: 0.0
+  permute: 0.0
+  rotate: 0.0
+  poisson_lambda: 3.5
+  permute_sentences: 1
+  mask_length: 'span-poisson'
+  replace_length: 1
+
+criterion: cross_entropy
+
+dataset:
+  batch_size: 16
+  max_tokens: 3200
+  skip_invalid_size_inputs_valid_test: true
+  dataset_impl: mmap
+  num_workers: 4
+  #ignore_unused_valid_subsets: true
+
+optimizer:
+  _name: adam
+  weight_decay: 0.01
+  #  adam_betas: (0.9,0.98)
+  #  adam_eps: 1e-06
+
+lr_scheduler:
+  _name: polynomial_decay
+  warmup_updates: 10000
+  total_num_update: 500000
+
+optimization:
+  clip_norm: 0.1
+  lr: [0.0004]
+  max_update: 500000
+  update_freq: [4]
+  # stop_min_lr: 1e-09 nao tem mais o min_lr e esse previne o treino de comecar. Deve ter outro significado
+
+model:
+  _name: bart_large
+  max_positions: 512
+  dropout: 0.1
+  attention_dropout: 0.1
+  base_layers: 0
+  arch: 'bart_large'
+  short_seq_prob: 0
+  share_all_embeddings: true
+  encoder_learned_pos: true
+  decoder_learned_pos: true
+
+  #interactive:
+  #arch: 'bart_large'
+  #short_seq_prob: 0 parametro legado
+ 

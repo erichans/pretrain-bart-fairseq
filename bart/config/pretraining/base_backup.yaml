@@ -5,16 +5,16 @@ common:
   log_interval: 200
 
 checkpoint:
-  no_epoch_checkpoints: true
+  no_epoch_checkpoints: false
 
 task:
-  _name: masked_lm
+  _name: denoising
   data: ???
   sample_break_mode: complete
   tokens_per_sample: 512
   shorten_method: truncate
 
-criterion: masked_lm
+criterion: cross_entropy
 
 dataset:
   batch_size: 16
@@ -23,23 +23,22 @@ dataset:
 optimizer:
   _name: adam
   weight_decay: 0.01
-  adam_betas: (0.9,0.98)
-  adam_eps: 1e-06
+  #  adam_betas: (0.9,0.98)
+  #  adam_eps: 1e-06
 
 lr_scheduler:
   _name: polynomial_decay
   warmup_updates: 10000
 
 optimization:
-  clip_norm: 0
-  lr: [0.0005]
-  max_update: 125000
-  update_freq: [16]
+  clip_norm: 0.1
+  lr: [0.0004]
+  max_update: 500000
+  update_freq: [4]
 
 model:
-  _name: roberta
+  _name: bart_large
   max_positions: 512
   dropout: 0.1
   attention_dropout: 0.1
-  tokens_per_sample: 512
-  shorten_method: truncate
+  base_layers: 0
