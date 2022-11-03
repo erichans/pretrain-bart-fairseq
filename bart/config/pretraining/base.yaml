@@ -10,7 +10,7 @@ common:
 checkpoint:
   no_epoch_checkpoints: false #original true
   save_interval: 1
-  save_interval_updates: 5000 #original 5000
+  save_interval_updates: 1000 #original 5000
   keep_interval_updates: 5
   restore_file: outputs/2022-11-03/09-55-34/checkpoints/checkpoint_last.pt
 
