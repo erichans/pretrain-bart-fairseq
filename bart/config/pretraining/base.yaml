@@ -1,21 +1,21 @@
 # @package _group_
 common:
   fp16: true
-  log_format: json
-  log_interval: 1000
+  log_format: tqdm #tqdm #json
+  log_interval: 10 #1000
   #fp16_init_scale: 128
   #min_loss_scale: 0.0001
+  #  wandb_project: bart_pt
 
 checkpoint:
-  no_epoch_checkpoints: true #original true
+  no_epoch_checkpoints: false #original true
   save_interval: 1
-  save_interval_updates: 3000 #original 5000
+  save_interval_updates: 5000 #original 5000
   keep_interval_updates: 5
+  restore_file: outputs/2022-11-03/09-55-34/checkpoints/checkpoint_last.pt
 
 distributed_training:
   fp16: true
-  distributed_world_size: 2 # original 256
-  distributed_port: 54187
 
 bpe: 
   _name: gpt2
@@ -42,8 +42,7 @@ task:
 criterion: cross_entropy
 
 dataset:
-  batch_size: 16
-  max_tokens: 3200
+  max_tokens: 19200 #3200
   skip_invalid_size_inputs_valid_test: true
   dataset_impl: mmap
   num_workers: 4
@@ -63,9 +62,9 @@ lr_scheduler:
 optimization:
   clip_norm: 0.1
   lr: [0.0004]
-  max_update: 500000
-  update_freq: [4]
-  # stop_min_lr: 1e-09 nao tem mais o min_lr e esse previne o treino de comecar. Deve ter outro significado
+  max_update: 500 #500000
+  update_freq: [8] #4
+  #stop_min_lr: 1e-09 #nao tem mais o min_lr e esse previne o treino de comecar. Deve ter outro significado
 
 model:
   _name: bart_large
