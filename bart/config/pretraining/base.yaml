@@ -12,8 +12,11 @@ checkpoint:
   save_interval: 1
   save_interval_updates: 1000 #original 5000
   keep_interval_updates: 1
-  restore_file: /home/TCU/erichm/.cache/torch/pytorch_fairseq/40858f8de84f479771b2807266d806749e9ad0f8cb547921c35a76ae9c3ed0f6.099ef973524a5edb31b1211569b67bcc2863bc6d00781b79bac752acf8e48991/model.pt
-  #restore_file: outputs/2022-11-03/09-55-34/checkpoints/checkpoint_last.pt
+  restore_file: /home/TCU/erichm/projetos/pretrain-bart-fairseq/bart/original_bart_large/bart_large.pt
+  reset_optimizer: true
+  reset_dataloader: true
+  reset_meters: true
+  reset_lr_scheduler: true
 
 distributed_training:
   fp16: true
