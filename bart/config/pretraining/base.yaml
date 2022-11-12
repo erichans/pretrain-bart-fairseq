@@ -61,13 +61,13 @@ optimizer:
 
 lr_scheduler:
   _name: polynomial_decay
-  warmup_updates: 2000 #original 10000
-  total_num_update: 100000 #original 500000
+  warmup_updates: 900 #original 10000
+  total_num_update: 44500 #original 500000
 
 optimization:
   clip_norm: 0.1
   lr: [0.0004]
-  max_update: 100000 # original 500000
+  max_update: 44500 # original 500000
   update_freq: [48] #4
   #stop_min_lr: 1e-09 #nao tem mais o min_lr e esse previne o treino de comecar. Deve ter outro significado
 
