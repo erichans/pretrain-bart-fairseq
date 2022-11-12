@@ -7,3 +7,4 @@ sentencepiece==0.1.97
 tqdm==4.64.1
 tensorboardX==2.5.1
 wandb==0.13.4
+transformers==4.24.0

@@ -11,8 +11,9 @@ checkpoint:
   no_epoch_checkpoints: false #original true
   save_interval: 1
   save_interval_updates: 1000 #original 5000
-  keep_interval_updates: 5
-  restore_file: outputs/2022-11-03/09-55-34/checkpoints/checkpoint_last.pt
+  keep_interval_updates: 1
+  restore_file: /home/TCU/erichm/.cache/torch/pytorch_fairseq/40858f8de84f479771b2807266d806749e9ad0f8cb547921c35a76ae9c3ed0f6.099ef973524a5edb31b1211569b67bcc2863bc6d00781b79bac752acf8e48991/model.pt
+  #restore_file: outputs/2022-11-03/09-55-34/checkpoints/checkpoint_last.pt
 
 distributed_training:
   fp16: true
@@ -42,7 +43,7 @@ task:
 criterion: cross_entropy
 
 dataset:
-  max_tokens: 19200 #3200
+  max_tokens: 3200 #3200
   skip_invalid_size_inputs_valid_test: true
   dataset_impl: mmap
   num_workers: 4
@@ -57,13 +58,13 @@ optimizer:
 lr_scheduler:
   _name: polynomial_decay
   warmup_updates: 10000
-  total_num_update: 500000
+  total_num_update: 600000
 
 optimization:
   clip_norm: 0.1
   lr: [0.0004]
-  max_update: 500000
-  update_freq: [8] #4
+  max_update: 600000
+  update_freq: [48] #4
   #stop_min_lr: 1e-09 #nao tem mais o min_lr e esse previne o treino de comecar. Deve ter outro significado
 
 model:
