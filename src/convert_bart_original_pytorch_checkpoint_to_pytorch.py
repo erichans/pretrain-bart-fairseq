@@ -152,11 +152,11 @@ if __name__ == "__main__":
     #     "--hf_config", default=None, type=str, help="Which huggingface architecture to use: bart-large-xsum"
     # )
     # args = parser.parse_args()
-    checkpoint_dir = "pytorch/fairseq"
-    checkpoint = 'bart.large'
+    # checkpoint_dir = "pytorch/fairseq"
+    # checkpoint = 'bart.large'
     # checkpoint = 'bart.large.cnn'
-    # checkpoint_dir = 'bart/outputs/2022-11-03/14-14-24/checkpoints/'
-    # checkpoint = 'checkpoint_best.pt'
+    checkpoint_dir = 'bart/outputs/2022-11-11/22-53-08/checkpoints/'
+    checkpoint = 'checkpoint_last.pt'
     # bart = BARTModel.from_pretrained(checkpoint_dir, checkpoint, bpe=None)
     
     pytorch_dump_folder_path = './tmp'

@@ -3,8 +3,8 @@ from fairseq.models.roberta import RobertaModel
 import torch
 
 def main():
-    checkpoint_dir = 'bart/outputs/2022-11-03/14-14-24/checkpoints/'
-    checkpoint = 'checkpoint_best.pt'
+    checkpoint_dir = 'bart/outputs/2022-11-11/22-53-08/checkpoints/'
+    checkpoint = 'checkpoint_last.pt'
     bart = BARTModel.from_pretrained(checkpoint_dir, checkpoint, bpe=None)
     # bart = BARTModel.from_pretrained('bart.large')
     # roberta = RobertaModel.from_pretrained('roberta.large')

@@ -1,7 +1,8 @@
 
 
 def main():
-    with open('bart/data-bin/brwac/dict_base.txt', 'r') as f:
+    # with open('roberta/data-bin/wikitext-103_original/dict.txt', 'r') as f:
+    with open('bart/data-bin/brwac/dict.txt', 'r') as f:
         input_lines = f.readlines() #50220
 
     bpes = sorted([int(input_line.split(' ')[0]) for input_line in input_lines if input_line.split(' ')[0].isnumeric()]) #50213
@@ -20,9 +21,7 @@ def main():
             index_start += 1
             
     [print(f'{bpe} 0') for bpe in missing[:40]]
-    
-    with open('bart/data-bin/brwac/dict.txt', 'w') as f:
-        f.writelines(input_lines)
+
 
 
 if __name__ == '__main__':

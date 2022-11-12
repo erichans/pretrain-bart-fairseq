@@ -36,7 +36,7 @@ def main():
     # checkpoint = 29618
     # base_model = f'saved_models/checkpoint-{checkpoint}'
     # base_model = 'facebook/bart-large'
-    # base_model = './tmp'
+    base_model = './tmp'
 
     create_long_model(
         base_model=base_model
