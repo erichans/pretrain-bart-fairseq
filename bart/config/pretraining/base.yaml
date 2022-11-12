@@ -17,6 +17,7 @@ checkpoint:
   reset_dataloader: true
   reset_meters: true
   reset_lr_scheduler: true
+  keep_last_epochs: 5
 
 distributed_training:
   fp16: true
