@@ -2,7 +2,7 @@
 common:
   fp16: true
   log_format: tqdm #tqdm #json
-  log_interval: 100 #1000
+  log_interval: 20 #1000
   #fp16_init_scale: 128
   #min_loss_scale: 0.0001
   wandb_project: bart_large_pt
@@ -10,7 +10,7 @@ common:
 checkpoint:
   no_epoch_checkpoints: false #original true
   save_interval: 1
-  save_interval_updates: 1000 #original 5000
+  save_interval_updates: 100 #original 5000
   keep_interval_updates: 1
   restore_file: /home/TCU/erichm/projetos/pretrain-bart-fairseq/bart/original_bart_large/bart_large.pt
   reset_optimizer: true
@@ -61,13 +61,13 @@ optimizer:
 
 lr_scheduler:
   _name: polynomial_decay
-  warmup_updates: 10000
-  total_num_update: 600000
+  warmup_updates: 2000 #original 10000
+  total_num_update: 100000 #original 500000
 
 optimization:
   clip_norm: 0.1
   lr: [0.0004]
-  max_update: 600000
+  max_update: 100000 # original 500000
   update_freq: [48] #4
   #stop_min_lr: 1e-09 #nao tem mais o min_lr e esse previne o treino de comecar. Deve ter outro significado
 
@@ -76,7 +76,7 @@ model:
   max_positions: 512
   dropout: 0.1
   attention_dropout: 0.1
-  base_layers: 0
+  #base_layers: 0
   arch: 'bart_large'
   short_seq_prob: 0
   share_all_embeddings: true
