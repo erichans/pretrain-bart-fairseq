@@ -132,6 +132,7 @@ def convert_bart_checkpoint(checkpoint_dir, checkpoint_path, pytorch_dump_folder
         model.model.load_state_dict(state_dict)
         if hasattr(model, "lm_head"):
             model.lm_head = make_linear_from_emb(model.model.shared)
+            # model.lm_head.weight = lm_head
             new_model_outputs = model.model(tokens)[0]
 
     # Check results
@@ -155,11 +156,11 @@ if __name__ == "__main__":
     # checkpoint_dir = "pytorch/fairseq"
     # checkpoint = 'bart.large'
     # checkpoint = 'bart.large.cnn'
-    checkpoint_dir = 'bart/outputs/2022-11-11/22-53-08/checkpoints/'
-    checkpoint = 'checkpoint_last.pt'
+    checkpoint_dir = 'bart/outputs/2022-11-12/12-23-46/checkpoints/'
+    checkpoint = 'checkpoint1.pt'
     # bart = BARTModel.from_pretrained(checkpoint_dir, checkpoint, bpe=None)
     
-    pytorch_dump_folder_path = './tmp'
+    pytorch_dump_folder_path = checkpoint.split('.')[0]
     hf_config = 'facebook/bart-large'
     # hf_config = 'facebook/bart-large-cnn'
     convert_bart_checkpoint(checkpoint_dir, checkpoint, pytorch_dump_folder_path, hf_checkpoint_name=hf_config)
