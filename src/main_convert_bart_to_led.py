@@ -90,7 +90,7 @@ def copy_weights(bart, led):
     assert len(parameters_missing_update) == 0
 
 def main():
-    checkpoint = 'checkpoint1'
+    checkpoint = 'checkpoint2'
     save_model_to = f'./{checkpoint}_generated'
     if not os.path.exists(save_model_to):
         os.mkdir(save_model_to)
