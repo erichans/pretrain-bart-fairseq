@@ -176,7 +176,7 @@ brwac*/
 */multirun/
 */wikitext*
 */outputs/
-bart/original_bart_large/
+bart_pt_br/original_bart_large/
 checkpoint*/
 tmp*/
 original/
