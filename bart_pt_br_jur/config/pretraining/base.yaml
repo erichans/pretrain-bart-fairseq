@@ -10,7 +10,7 @@ common:
 checkpoint:
   no_epoch_checkpoints: false #original true
   save_interval: 1
-  save_interval_updates: 40 #original 5000
+  save_interval_updates: 35 #original 5000
   keep_interval_updates: 1
   restore_file: /home/TCU/erichm/projetos/pretrain-bart-fairseq/bart_pt_br/outputs/2022-11-12/12-23-46/checkpoints/checkpoint8.pt
   reset_optimizer: true
@@ -61,13 +61,13 @@ optimizer:
 
 lr_scheduler:
   _name: polynomial_decay
-  warmup_updates: 500 #original 10000
-  total_num_update: 23000 #original 500000
+  warmup_updates: 128 #original 10000
+  total_num_update: 6000 #original 500000
 
 optimization:
   clip_norm: 0.1
   lr: [0.0004]
-  max_update: 23000 # original 500000
+  max_update: 6000 # original 500000
   update_freq: [30] #4
   #stop_min_lr: 1e-09 #nao tem mais o min_lr e esse previne o treino de comecar. Deve ter outro significado
 
