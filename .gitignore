@@ -171,8 +171,8 @@ wandb/
 brwac*/
 
 .hydra/
-*/data-bin/
-*/gpt2_bpe/
+**/data-bin/
+**/gpt2_bpe/
 */multirun/
 */wikitext*
 */outputs/
@@ -180,3 +180,4 @@ bart/original_bart_large/
 checkpoint*/
 tmp*/
 original/
+tcu_jur*/
