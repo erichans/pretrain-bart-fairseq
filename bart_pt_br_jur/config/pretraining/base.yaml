@@ -12,7 +12,7 @@ checkpoint:
   save_interval: 1
   save_interval_updates: 200 #original 5000
   keep_interval_updates: 1
-  restore_file: /home/TCU/erichm/projetos/pretrain-bart-fairseq/bart/original_bart_large/bart_large.pt
+  restore_file: /home/TCU/erichm/projetos/pretrain-bart-fairseq/bart_pt_br/outputs/2022-11-12/12-23-46/checkpoints/checkpoint8.pt
   reset_optimizer: true
   reset_dataloader: true
   reset_meters: true
