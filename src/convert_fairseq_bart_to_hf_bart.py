@@ -157,7 +157,7 @@ if __name__ == "__main__":
     # checkpoint = 'bart.large'
     # checkpoint = 'bart.large.cnn'
     checkpoint_dir = 'bart/outputs/2022-11-12/12-23-46/checkpoints/'
-    checkpoint = 'checkpoint2.pt'
+    checkpoint = 'checkpoint3.pt'
     # bart = BARTModel.from_pretrained(checkpoint_dir, checkpoint, bpe=None)
     
     pytorch_dump_folder_path = checkpoint.split('.')[0]
