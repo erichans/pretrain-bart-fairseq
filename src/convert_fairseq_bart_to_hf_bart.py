@@ -156,11 +156,11 @@ if __name__ == "__main__":
     # checkpoint_dir = "pytorch/fairseq"
     # checkpoint = 'bart.large'
     # checkpoint = 'bart.large.cnn'
-    checkpoint_dir = 'bart/outputs/2022-11-12/12-23-46/checkpoints/'
+    checkpoint_dir = 'bart/outputs/2022-11-22/18-17-56/checkpoints/'
     checkpoint = 'checkpoint8.pt'
     # bart = BARTModel.from_pretrained(checkpoint_dir, checkpoint, bpe=None)
     
-    pytorch_dump_folder_path = checkpoint.split('.')[0]
+    pytorch_dump_folder_path = checkpoint.split('.')[0] + '_jur'
     hf_config = 'facebook/bart-large'
     # hf_config = 'facebook/bart-large-cnn'
     convert_bart_checkpoint(checkpoint_dir, checkpoint, pytorch_dump_folder_path, hf_checkpoint_name=hf_config)

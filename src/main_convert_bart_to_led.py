@@ -22,8 +22,8 @@ def create_long_model(
 
     # tokenizer = BartTokenizerFast.from_pretrained(tokenizer_name_or_path, model_max_length=max_pos)
     tokenizer = BartTokenizerFast(
-        vocab_file='/home/TCU/erichm/projetos/pretrain-bart-fairseq/bart_pt_br/gpt2_bpe/encoder.json', 
-        merges_file='/home/TCU/erichm/projetos/pretrain-bart-fairseq/bart_pt_br/gpt2_bpe/vocab.bpe')
+        vocab_file=f'{tokenizer_name_or_path}/encoder.json', 
+        merges_file=f'{tokenizer_name_or_path}/vocab.bpe')
     # ledTokenizer = LEDTokenizerFast.from_pretrained(tokenizer_name_or_path, model_max_length=max_pos)
 
     # in BART attention_probs_dropout_prob is attention_dropout, but LongformerSelfAttention
@@ -90,7 +90,7 @@ def copy_weights(bart, led):
     assert len(parameters_missing_update) == 0
 
 def main():
-    checkpoint = 'checkpoint8'
+    checkpoint = 'checkpoint8_jur'
     save_model_to = f'./{checkpoint}_generated'
     if not os.path.exists(save_model_to):
         os.mkdir(save_model_to)
@@ -98,7 +98,7 @@ def main():
     create_long_model(
         save_model_to=save_model_to,
         base_model=checkpoint,
-        tokenizer_name_or_path=f'~/projetos/pretrain-bart-fairseq/bart_pt_br/gpt2_bpe/',
+        tokenizer_name_or_path=f'/home/TCU/erichm/projetos/pretrain-bart-fairseq/bart_pt_br_jur/gpt2_bpe/',
         max_pos=16384
     )
 
